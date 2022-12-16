@@ -1,9 +1,10 @@
-import { CLEAR_DETAILS, SET_COUNTRY, SET_ERROR, SET_LOADING } from './details-actions'
+import { CLEAR_DETAILS, SET_COUNTRY, SET_ERROR, SET_LOADING, SET_NEIGHBORS } from './details-actions'
 
 const initialState = {
 	currentCountry: null,
 	status: 'idle',
 	error: null,
+	neighbors: [],
 }
 
 export const detailsReducer = (state = initialState, action) => {
@@ -29,6 +30,11 @@ export const detailsReducer = (state = initialState, action) => {
 			}
 		case CLEAR_DETAILS:
 			return initialState
+		case SET_NEIGHBORS:
+			return {
+				...state,
+				neighbors: payload,
+			}
 		default:
 			return state
 	}
